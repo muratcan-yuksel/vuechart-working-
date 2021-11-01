@@ -1,10 +1,10 @@
 <script>
 import { defineComponent } from "vue";
-import { Bar } from "vue3-chart-v2";
+import { Pie } from "vue3-chart-v2";
 
 export default defineComponent({
   name: "MonthlyChart",
-  extends: Bar,
+  extends: Pie,
   props: ["someData", "currencyArray", "rateArray"],
   data() {
     return {
@@ -20,7 +20,7 @@ export default defineComponent({
       datasets: [
         {
           label: "Exchange Rates",
-          backgroundColor: "#f87979",
+          backgroundColor: ["#f87979", "yellow", "black"],
           data: this.rateArray,
         },
       ],

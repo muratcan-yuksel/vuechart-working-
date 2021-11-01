@@ -1,10 +1,12 @@
 <template>
-  <BarChart
-    v-if="rendering"
-    v-bind:someData="someData"
-    v-bind:currencyArray="currencyArray"
-    v-bind:rateArray="rateArray"
-  />
+  <div style="height: 600px; width: 600px">
+    <BarChart
+      v-if="rendering"
+      v-bind:someData="someData"
+      v-bind:currencyArray="currencyArray"
+      v-bind:rateArray="rateArray"
+    />
+  </div>
 </template>
 
 <script>
