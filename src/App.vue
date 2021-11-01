@@ -1,5 +1,10 @@
 <template>
-  <BarChart v-bind:someData="someData" v-bind:currencyArray="currencyArray" />
+  <BarChart
+    v-if="rendering"
+    v-bind:someData="someData"
+    v-bind:currencyArray="currencyArray"
+    v-bind:rateArray="rateArray"
+  />
 </template>
 
 <script>
@@ -14,6 +19,8 @@ export default {
     return {
       someData: "",
       currencyArray: [],
+      rateArray: [],
+      rendering: false,
     };
   },
   async beforeCreate() {
@@ -26,9 +33,11 @@ export default {
       console.log(data.bpi);
       // this.someData = data.bpi;
       for (let currency in data.bpi) {
-        // console.log(data.bpi[currency].code);
         this.currencyArray.push(data.bpi[currency].code);
+        this.rateArray.push(parseFloat(data.bpi[currency].rate));
+        this.rendering = true;
       }
+
       // barChart.data.labels = names.value;
     } catch (err) {
       console.log(err);

@@ -5,7 +5,7 @@ import { Bar } from "vue3-chart-v2";
 export default defineComponent({
   name: "MonthlyChart",
   extends: Bar,
-  props: ["someData", "currencyArray"],
+  props: ["someData", "currencyArray", "rateArray"],
   data() {
     return {
       currency: "",
@@ -19,9 +19,9 @@ export default defineComponent({
       labels: this.currencyArray,
       datasets: [
         {
-          label: "GitHub Commits",
+          label: "Exchange Rates",
           backgroundColor: "#f87979",
-          data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+          data: this.rateArray,
         },
       ],
     });
@@ -29,6 +29,7 @@ export default defineComponent({
     // console.log(this.renderChart);
     // console.log(this.someData);
     console.log(this.currencyArray);
+    console.log("rates " + this.rateArray);
   },
 });
 </script>
